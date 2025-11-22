@@ -8,7 +8,7 @@ interface ProductCardProps {
 export default function ProductCard({ product }: ProductCardProps) {
     return (
         <div className={styles.productCard}>
-            
+            {product.id}
         </div>
     )
 }
