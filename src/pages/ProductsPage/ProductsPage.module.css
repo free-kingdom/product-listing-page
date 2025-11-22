@@ -1,0 +1,9 @@
+.productsPage {
+    max-inline-size: 1080px;
+    margin-inline: auto;
+}
+
+.productsContainer {
+    display: grid;
+    
+}
