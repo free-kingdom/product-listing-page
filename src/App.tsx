@@ -1,7 +1,7 @@
 import Header from "./layout/Header/Header"
 import Content from "./layout/Content/Content"
 import Footer from "./layout/Footer/Footer"
-import ProductsPage from "./pages/ProductsPage/ProductsPage"
+import ProductListingPage from "./pages/ProductListingPage/ProductListingPage"
 import styles from "./App.module.css"
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
     <div className={styles.app}>
       <Header />
       <Content>
-        <ProductsPage />
+        <ProductListingPage />
       </Content>
       <Footer />
     </div>

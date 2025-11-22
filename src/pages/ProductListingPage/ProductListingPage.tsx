@@ -1,10 +1,10 @@
-import styles from './ProductsPage.module.css'
+import styles from './ProductListingPage.module.css'
 import { fetchProducts, selectProducts, selectStatus } from "../../feats/Products/productsSlice"
 import { useAppDispatch, useAppSelector } from '../../hooks/redux'
 import ProductCard from '../../comps/ProductCard/ProductCard';
 import { useEffect } from 'react';
 
-export default function ProductsPage() {
+export default function ProductListingPage() {
     const products = useAppSelector(selectProducts);
     const status = useAppSelector(selectStatus);
     const dispatch = useAppDispatch();
@@ -14,8 +14,8 @@ export default function ProductsPage() {
     }, [dispatch]);
 
     return (
-        <div className={styles.productsPage}>
-            <div className={styles.productsContainer}>
+        <div className={styles.productListingPage}>
+            <div className={styles.productListContainer}>
                 {products.map(product => <ProductCard key={product.id} product={product}/>)}
             </div>
         </div>

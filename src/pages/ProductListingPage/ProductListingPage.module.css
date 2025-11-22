@@ -1,9 +1,9 @@
-.productsPage {
+.productListingPage {
     max-inline-size: 1080px;
     margin-inline: auto;
 }
 
-.productsContainer {
+.productListContainer {
     display: grid;
     gap: 1em;
     grid-template-columns: repeat(auto-fit, minmax(256px, 1fr));
