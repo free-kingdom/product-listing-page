@@ -1,25 +1,47 @@
 import styles from "./FilterBtns.module.css"
 import { Button, Select, Dropdown } from "antd";
+import { useAppDispatch, useAppSelector } from "../../hooks/redux";
+import { fetchProducts, selectProducts } from "../../feats/Products/productsSlice";
+import type { IProduct } from "../../types";
 
 export default function FilterBtns() {    
+    const products = useAppSelector(selectProducts);
+    const dispatch = useAppDispatch();
+
+    const createOnClickCategory = (category: IProduct["category"] | undefined) => {
+        return () => {
+            dispatch(fetchProducts({
+                limit: products.limit,
+                offset: 0,
+                category: category,
+                sort: products.sort
+            }));
+        };
+    }
 
     const items = [
         {
+            key: 0,
+            label: (
+                <div onClick={createOnClickCategory(undefined)}><strong>全部</strong></div>
+            )
+        },
+        {
             key: 1,
             label: (
-                <span>服饰</span>
+                <div onClick={createOnClickCategory("服饰")}>服饰</div>
             )
         },
         {
             key: 2,
             label: (
-                <span>食品</span>
+                <div onClick={createOnClickCategory("食品")}>食品</div>
             )
         },
         {
             key: 3,
             label: (
-                <span>家居</span>
+                <div onClick={createOnClickCategory("家居")}>家居</div>
             )
         }
     ]
@@ -34,7 +56,14 @@ export default function FilterBtns() {
             <Select
                 defaultValue="按价格排序"
                 style={{ width: 120 }}
-                /* onChange={handleChange} */
+                onChange={(value) => {
+                    dispatch(fetchProducts({
+                        limit: products.limit,
+                        offset: products.offset,
+                        category: products.category,
+                        sort: value as "asc" | "desc"
+                    }));                    
+                }}
                 options={[
                     {value: "asc", label: "按价格升序"},
                     {value: "desc", label: "按价格降序"}            
