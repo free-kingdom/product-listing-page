@@ -45,8 +45,8 @@ export const productsSlice = createSlice({
             const {products, total, category, offset, sort} = action.payload;
             state.products = products;
             state.total = total;
-            if (category) state.category = category;
-            if (sort) state.sort = sort;
+            state.category = category;
+            state.sort = sort;
             state.offset = offset;
         })
         .addCase(fetchProducts.rejected, state => {

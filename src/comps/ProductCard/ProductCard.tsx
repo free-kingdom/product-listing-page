@@ -12,7 +12,11 @@ export default function ProductCard({ product }: ProductCardProps) {
     const [int, frac] = product.price.toString().split(".");
 
     return (
-        <Card hoverable cover={<img draggable={false} src={product.image} alt={product.name}/>}>
+        <Card 
+            style={{height: 300}}
+            hoverable
+            cover={<img draggable={false} className={styles.cardImg} src={product.image} alt={product.name}/>}
+            >
             <Meta 
                 title={product.category + product.id} 
                 description={

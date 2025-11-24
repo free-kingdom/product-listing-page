@@ -7,3 +7,8 @@
 .price__int {
     font-size: 1.25em;
 }
+
+.cardImg {    
+    height: 150px;
+    object-fit: cover;
+}
