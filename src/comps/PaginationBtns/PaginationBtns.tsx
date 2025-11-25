@@ -8,6 +8,7 @@ export default function PaginationBtns() {
 
     return (
         <Pagination 
+            disabled={products.status==="loading"}
             showSizeChanger
             current={Math.floor(products.offset / products.limit) + 1}
             defaultPageSize={products.limit}

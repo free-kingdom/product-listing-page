@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import type { IProduct } from "../../types"
 import type { RootState } from "../../store"
 import { mockFetchProducts } from "../../api/mock"
+import { throttle } from "../../utils"
 
 export interface ProductsState {
     /* 商品列表 */
@@ -55,9 +56,11 @@ export const productsSlice = createSlice({
     }
 })
 
+const _fetchProducts = throttle(mockFetchProducts, 300);
+
 export const fetchProducts = createAsyncThunk(
     "products/fetchProducts",
-    mockFetchProducts
+    _fetchProducts
 )
 
 export const selectProducts = (state: RootState) => state.products;
