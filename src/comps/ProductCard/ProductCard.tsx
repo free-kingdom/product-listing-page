@@ -13,7 +13,7 @@ export default function ProductCard({ product }: ProductCardProps) {
 
     return (
         <Card 
-            style={{height: 300}}
+            className={styles.card}
             hoverable
             cover={<img draggable={false} className={styles.cardImg} src={product.image} alt={product.name}/>}
             >

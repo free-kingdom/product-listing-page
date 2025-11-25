@@ -25,7 +25,7 @@ const initialState: ProductsState = {
     status: "idle",
     total: undefined,
     offset: 0,
-    limit: 12,
+    limit: 100,
     category: undefined,
     sort: undefined
 }
@@ -43,12 +43,13 @@ export const productsSlice = createSlice({
         })
         .addCase(fetchProducts.fulfilled, (state, action) => {
             state.status = "succeeded";
-            const {products, total, category, offset, sort} = action.payload;
+            const {products, total, category, offset, sort, limit} = action.payload;
             state.products = products;
             state.total = total;
             state.category = category;
             state.sort = sort;
             state.offset = offset;
+            state.limit = limit;
         })
         .addCase(fetchProducts.rejected, state => {
             state.status = "failed";

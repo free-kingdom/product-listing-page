@@ -1,6 +1,6 @@
 import type { IProduct } from '../types';
 
-const products: IProduct[] = Array.from({ length: 100 }, (_, i) => ({
+const products: IProduct[] = Array.from({ length: 10000 }, (_, i) => ({
     id: i + 1,
     name: `产品${i + 1}`,
     price: Number((Math.random() * 100 + 10).toFixed(2)),

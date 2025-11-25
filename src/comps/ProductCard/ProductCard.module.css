@@ -1,3 +1,8 @@
+.card {
+    width: 250px;
+    height: 300px;
+}
+
 .price {
     color: red;
     font-weight: bold;

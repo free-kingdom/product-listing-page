@@ -12,8 +12,8 @@ export default function PaginationBtns() {
             showSizeChanger
             current={Math.floor(products.offset / products.limit) + 1}
             defaultPageSize={products.limit}
-            pageSizeOptions={[12, 24, 36]}
-            onChange={(page, pageSize) => {
+            pageSizeOptions={[100, 200, 500]}
+            onChange={(page, pageSize) => {                
                 dispatch(fetchProducts({
                     limit: pageSize,
                     offset: (page - 1) * pageSize,
