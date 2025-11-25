@@ -15,7 +15,7 @@ function CellComponent({ products, columnCount, columnIndex, rowIndex, style, st
         <div style={style} >
                 {
                     status === "succeeded" ? (
-                        <ProductCard key={product.id} product={product} />
+                        product ? <ProductCard key={product.id} product={product} /> : <div></div>
                     ) : (
                         <Card
                             style={{ width: 250, height: 300 }}
